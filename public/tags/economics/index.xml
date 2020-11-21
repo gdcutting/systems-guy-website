@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Economics on Guy Cutting</title>
+    <link>https://www.systemscienceguy.com/tags/economics/</link>
+    <description>Recent content in Economics on Guy Cutting</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 May 2020 17:51:39 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.systemscienceguy.com/tags/economics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Self Organized Criticality Economics</title>
+      <link>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</link>
+      <pubDate>Sat, 23 May 2020 17:51:39 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</guid>
+      <description>Self-Organized Criticality Economic Model github repo Project report (PDF) with experimental results and analysis After finishing my Master&amp;rsquo;s in Systems Science at PSU, I now have some time to work on my website! Over the next few weeks I&amp;rsquo;m going to be posting some code and links to past projects. I&amp;rsquo;d like to start with a project from my Artificial Life class this term - it&amp;rsquo;s a simple Agent-Based economic model based on a Self-Organized Criticality mechanism.</description>
+    </item>
+    
+  </channel>
+</rss>

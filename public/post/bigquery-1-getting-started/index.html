@@ -1,0 +1,1159 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https://www.systemscienceguy.com"
+        },
+        "articleSection" : "post",
+        "name" : "BigQuery Part 1: Getting Started",
+        "headline" : "BigQuery Part 1: Getting Started",
+        "description" : "BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.
+In this installment, we&rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &lsquo;Open in Colab&rsquo; link will take you to the Colaboratory interactive version which will run in your browser.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2020",
+        "datePublished": "2020-04-23 20:08:17 -0700 PDT",
+        "dateModified" : "2020-04-23 20:08:17 -0700 PDT",
+        "url" : "https://www.systemscienceguy.com/post/bigquery-1-getting-started/",
+        "wordCount" : "1170",
+        "keywords" : [ "Google Cloud Platform","Cloud","BigQuery","SQL","Python","Big Data","Blog" ]
+    }
+    </script>
+        
+            
+                <title>BigQuery Part 1: Getting Started</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.54.0" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="Digital consulting services">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BigQuery Part 1: Getting Started"/>
+<meta name="twitter:description" content="BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.
+In this installment, we&rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &lsquo;Open in Colab&rsquo; link will take you to the Colaboratory interactive version which will run in your browser."/>
+
+        <meta property="og:title" content="BigQuery Part 1: Getting Started" />
+<meta property="og:description" content="BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.
+In this installment, we&rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &lsquo;Open in Colab&rsquo; link will take you to the Colaboratory interactive version which will run in your browser." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.systemscienceguy.com/post/bigquery-1-getting-started/" />
+<meta property="article:published_time" content="2020-04-23T20:08:17-07:00"/>
+<meta property="article:modified_time" content="2020-04-23T20:08:17-07:00"/>
+
+        <meta property="og:image" content="https://www.systemscienceguy.com/images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="BigQuery Part 1: Getting Started">
+<meta itemprop="description" content="BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.
+In this installment, we&rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &lsquo;Open in Colab&rsquo; link will take you to the Colaboratory interactive version which will run in your browser.">
+
+
+<meta itemprop="datePublished" content="2020-04-23T20:08:17-07:00" />
+<meta itemprop="dateModified" content="2020-04-23T20:08:17-07:00" />
+<meta itemprop="wordCount" content="1170">
+
+
+
+<meta itemprop="keywords" content="Google Cloud Platform,Cloud,BigQuery,SQL,Python,Big Data," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://www.systemscienceguy.com/css/main.css">
+            <link rel="stylesheet" href="https://www.systemscienceguy.com/css/add-on.css">
+            <link rel="stylesheet" href="https://www.systemscienceguy.com/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://www.systemscienceguy.com/">Guy Cutting</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/post/">
+                            <i class="">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/services/web">
+                            <i class="">&nbsp;</i>Web
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/datascience/">
+                            <i class="">&nbsp;</i>Data Science &amp; ML
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/systems/">
+                            <i class="">&nbsp;</i>Complex Systems
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/services/">
+                            <i class="">&nbsp;</i>Services and Rates
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.systemscienceguy.com/contact/">
+                            <i class="">&nbsp;</i>Contact
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://www.systemscienceguy.com">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://www.systemscienceguy.com">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/post/">
+                            <h3>
+                                <i class="">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/services/web">
+                            <h3>
+                                <i class="">&nbsp;</i>Web
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/datascience/">
+                            <h3>
+                                <i class="">&nbsp;</i>Data Science &amp; ML
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/systems/">
+                            <h3>
+                                <i class="">&nbsp;</i>Complex Systems
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/services/">
+                            <h3>
+                                <i class="">&nbsp;</i>Services and Rates
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.systemscienceguy.com/contact/">
+                            <h3>
+                                <i class="">&nbsp;</i>Contact
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://www.systemscienceguy.com/post/what-happened-big-data/">What Happened To Big Data?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-05-24'>
+                                    May 24, 2020</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://www.systemscienceguy.com/post/bigquery-cost-control/">Bigquery Cost Control</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-05-24'>
+                                    May 24, 2020</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://www.systemscienceguy.com/post/ai-welfare-state/">Vox on AI as a threat to humanity</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-05-23'>
+                                    May 23, 2020</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://www.systemscienceguy.com/post/self-organized-criticality-economics/">Self Organized Criticality Economics</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-05-23'>
+                                    May 23, 2020</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://www.systemscienceguy.com/post/bigquery-1-getting-started/">BigQuery Part 1: Getting Started</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-04-23'>
+                                    April 23, 2020</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /blog/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f&amp;text=BigQuery%20Part%201%3a%20Getting%20Started&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f&amp;title=BigQuery%20Part%201%3a%20Getting%20Started" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f&amp;title=BigQuery%20Part%201%3a%20Getting%20Started" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f&amp;title=BigQuery%20Part%201%3a%20Getting%20Started" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f&amp;description=BigQuery%20Part%201%3a%20Getting%20Started" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fwww.systemscienceguy.com%2fpost%2fbigquery-1-getting-started%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://www.systemscienceguy.com/post/bigquery-1-getting-started/">BigQuery Part 1: Getting Started</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2020-04-23'>
+            April 23, 2020</time>
+        <span class="author"></span>
+        
+            <p>6 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+
+  
+
+  <div id="content">
+    
+
+<p>BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.</p>
+
+<p>In this installment, we&rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &lsquo;Open in Colab&rsquo; link will take you to the Colaboratory interactive version which will run in your browser. You might also need to use that link if the Gist embed below isn&rsquo;t working (notebook embeds have been occasionally acting up on Gist lately).</p>
+
+<p><a href = "https://colab.research.google.com/github/gdcutting/bigquery/blob/master/Google_BigQuery_Getting_Started.ipynb" target = "new">View this notebook on Google Colaboratory</a></p>
+
+<h1 id="getting-started-with-the-bigquery-api">Getting started with the BigQuery API</h1>
+
+<p>We want to start exploring the Google BiqQuery <a href="https://cloud.google.com/bigquery/public-data/">public datasets</a>. Let&rsquo;s start by walking through the required setup steps, and then we can load and explore some data. Note that the procedure for using BigQuery outside of the colaboratory notebook environment is different and will be described in a separate article.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<p>Follow <a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries">this quickstart guide</a>, which will explain how to:</p>
+
+<ol>
+<li>Create a <a href="https://console.cloud.google.com/cloud-resource-manager">Cloud Platform project</a> if you don&rsquo;t have one already.</li>
+<li><a href="https://support.google.com/cloud/answer/6293499#enable-billing">Enable billing</a>) for the project</li>
+<li><a href="https://console.cloud.google.com/flows/enableapi?apiid=bigquery">Enable the BigQuery API</a></li>
+</ol>
+
+<h4 id="provide-credentials-to-the-runtime">Provide credentials to the runtime</h4>
+
+<p>Now we need to authenticate to gain access to the BigQuery API. When you first run this, you will be given a link to a page with your authentication key, which you will need to paste here.</p>
+
+<pre><code class="language-python">from google.colab import auth
+auth.authenticate_user()
+print('Authenticated')
+</code></pre>
+
+<p>Now that we&rsquo;re authenticated, we need to load the BigQuery package
+, and the google.colab.data_table package that can be used to display large pandas dataframes as an interactive data. Loading data_table is optional, but it will be useful for working with data in pandas.</p>
+
+<pre><code class="language-python">%load_ext google.cloud.bigquery
+%load_ext google.colab.data_table
+</code></pre>
+
+<h2 id="typical-api-usage-through-google-cloud-bigquery">Typical API Usage (through google-cloud-bigquery)</h2>
+
+<p>Now we can create a client, specifying the project name (replace &lsquo;bigquery-test-project-256220&rsquo; with your project name, which you can find in the <a href="https://console.cloud.google.com">GCP console</a>)</p>
+
+<pre><code class="language-python">project_id = '[bigquery-test-project-256220]'
+client = bigquery.Client(project_id)
+</code></pre>
+
+<p>With the client created for our project, now we can set up dataset references for a couple of datasets, Hacker News and <a href="https://console.cloud.google.com/bigquery?p=bigquery-public-data&amp;d=crypto_bitcoin&amp;page=dataset&amp;project=bigquery-test-project-256220&amp;folder&amp;organizationId">Bitcoin</a> datasets.</p>
+
+<p><a href="https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset">See the full list of public datasets</a> if you want to explore others.</p>
+
+<pre><code class="language-python">hn_dset_ref = client.dataset('hacker_news', project='bigquery-public-data')
+bc_dset_ref = client.dataset('crypto_bitcoin', project='bigquery-public-data')
+</code></pre>
+
+<p>Now that we have data <em>references</em>, we can load the actual datasets and confirm the type.</p>
+
+<pre><code class="language-python">hn_dset = client.get_dataset(hn_dset_ref)
+bc_dset = client.get_dataset(bc_dset_ref)
+type(bc_dset)
+</code></pre>
+
+<pre> google.cloud.bigquery.dataset.Dataset</pre>
+
+<p>Use client.list_tables, along with <a href="https://www.python.org/dev/peps/pep-0202/">list comprehension</a>, to get table information for both datasets:</p>
+
+<pre><code class="language-python">print([t.table_id for t in client.list_tables(hn_dset)])
+print([t.table_id for t in client.list_tables(bc_dset)])
+</code></pre>
+
+<div>
+Output:
+<pre>
+['comments', 'full', 'full_201510', 'stories']
+['blocks', 'inputs', 'outputs', 'transactions']
+</pre>
+</div>
+
+<p>Let&rsquo;s take a closer look at the &lsquo;blocks&rsquo; table in the bitcoin dataset:</p>
+
+<pre><code class="language-python">bc_blocks = client.get_table(bc_dset.table('blocks'))
+[command for command in dir(bc_blocks) if not command.startswith('_')]
+</code></pre>
+
+<div>
+Output:
+<pre>
+['clustering_fields',
+ 'created',
+ 'dataset_id',
+ 'description',
+ 'encryption_configuration',
+ 'etag',
+ 'expires',
+ 'external_data_configuration',
+ 'friendly_name',
+ 'from_api_repr',
+ 'from_string',
+ 'full_table_id',
+ 'labels',
+ 'location',
+ 'modified',
+ 'num_bytes',
+ 'num_rows',
+ 'partition_expiration',
+ 'partitioning_type',
+ 'path',
+ 'project',
+ 'reference',
+ 'schema',
+ 'self_link',
+ 'streaming_buffer',
+ 'table_id',
+ 'table_type',
+ 'time_partitioning',
+ 'to_api_repr',
+ 'to_bqstorage',
+ 'view_query',
+ 'view_use_legacy_sql']
+ </pre>
+ </div>
+
+<p>Let&rsquo;s examine the schema to get more information:</p>
+
+<pre><code class="language-python">bc_blocks.schema
+</code></pre>
+
+<div>
+Output:
+<pre>
+[SchemaField('hash', 'STRING', 'REQUIRED', 'Hash of this block', ()),
+ SchemaField('size', 'INTEGER', 'NULLABLE', 'The size of block data in bytes', ()),
+ SchemaField('stripped_size', 'INTEGER', 'NULLABLE', 'The size of block data in bytes excluding witness data', ()),
+ SchemaField('weight', 'INTEGER', 'NULLABLE', 'Three times the base size plus the total size. https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki', ()),
+ SchemaField('number', 'INTEGER', 'REQUIRED', 'The number of the block', ()),
+ SchemaField('version', 'INTEGER', 'NULLABLE', 'Protocol version specified in block header', ()),
+ SchemaField('merkle_root', 'STRING', 'NULLABLE', 'The root node of a Merkle tree, where leaves are transaction hashes', ()),
+ SchemaField('timestamp', 'TIMESTAMP', 'REQUIRED', 'Block creation timestamp specified in block header', ()),
+ SchemaField('timestamp_month', 'DATE', 'REQUIRED', 'Month of the block creation timestamp specified in block header', ()),
+ SchemaField('nonce', 'STRING', 'NULLABLE', 'Difficulty solution specified in block header', ()),
+ SchemaField('bits', 'STRING', 'NULLABLE', 'Difficulty threshold specified in block header', ()),
+ SchemaField('coinbase_param', 'STRING', 'NULLABLE', 'Data specified in the coinbase transaction of this block', ()),
+ SchemaField('transaction_count', 'INTEGER', 'NULLABLE', 'Number of transactions included in this block', ())]
+ </pre>
+ </div>
+
+<p>The table scheme gives us column names, types, parameters, descriptions, and (for the weight, a link to a GitHub repo).</p>
+
+<p>The schema is a necessary input for one of the more common and useful <a href="https://googleapis.dev/python/bigquery/latest/reference.html">BigQuery commands</a>: <code>list_rows()</code>, which returns a slice of the dataset without scanning any other section of the table. For that reason, it is often preferable to using a <code>limit</code> clause in your query.</p>
+
+<p>We want to select a subset of the columns, but the <code>selected_fields</code> parameter requires a schema object as an input, so we need to build a subset of the schema first to pass for that parameter.</p>
+
+<pre><code class="language-python">schema_subset = [col for col in bc_blocks.schema if col.name in ('number', 'timestamp', 'hash')]
+results = [x for x in client.list_rows(bc_blocks, start_index=100, selected_fields=schema_subset, max_results=10)]
+</code></pre>
+
+<p>Let&rsquo;s take a look at the results, first in raw format (not very easy to look at), then in dictionary form (much neater):</p>
+
+<pre><code class="language-python">print(results)
+for i in results:
+    print(dict(i))
+</code></pre>
+
+<div>
+Output:
+<pre>
+[Row(('000000000000000000824a2cbabfd94ded8a80c4179a9e662eebb205a6d22663', 487527, datetime.datetime(2017, 9, 29, 14, 25, 30, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('0000000000000000000030b69821159aeabd59ce42f32d3c0b10dfa3fab984f1', 487001, datetime.datetime(2017, 9, 26, 5, 55, 18, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('000000000000000000f6f0d7f30bb0c820b20c0a238d6b13747fb34b1ffda97d', 487132, datetime.datetime(2017, 9, 27, 2, 47, 7, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('000000000000000000d0eaefb69506912073c17d0388727bd3c1463ecd2ad2a2', 486707, datetime.datetime(2017, 9, 24, 0, 58, 8, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('0000000000000000007908cf4cab8d18b29bd5aa2b292a414f6c10675f9984eb', 487282, datetime.datetime(2017, 9, 28, 3, 58, 8, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('000000000000000000e330bef17e39727e0ead7bce9b82f57b871be23add429e', 487003, datetime.datetime(2017, 9, 26, 6, 17, 5, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('0000000000000000008820077a37573e5a3c0d6a8315513e4cccd59462771228', 485973, datetime.datetime(2017, 9, 19, 3, 12, 9, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('00000000000000000000133426bc20b82bb1827108a626db6bde3c45adf93824', 486014, datetime.datetime(2017, 9, 19, 11, 19, 41, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('00000000000000000073100b1b3cb9ed537c43666a39e388f86e4484e7c14e30', 486192, datetime.datetime(2017, 9, 20, 20, 1, 14, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2}), Row(('0000000000000000000f9bc1d8095de15900a39db25b8323c71985778626a1e8', 487118, datetime.datetime(2017, 9, 27, 1, 15, 14, tzinfo=<UTC>)), {'hash': 0, 'number': 1, 'timestamp': 2})]
+{'hash': '000000000000000000824a2cbabfd94ded8a80c4179a9e662eebb205a6d22663', 'number': 487527, 'timestamp': datetime.datetime(2017, 9, 29, 14, 25, 30, tzinfo=<UTC>)}
+{'hash': '0000000000000000000030b69821159aeabd59ce42f32d3c0b10dfa3fab984f1', 'number': 487001, 'timestamp': datetime.datetime(2017, 9, 26, 5, 55, 18, tzinfo=<UTC>)}
+{'hash': '000000000000000000f6f0d7f30bb0c820b20c0a238d6b13747fb34b1ffda97d', 'number': 487132, 'timestamp': datetime.datetime(2017, 9, 27, 2, 47, 7, tzinfo=<UTC>)}
+{'hash': '000000000000000000d0eaefb69506912073c17d0388727bd3c1463ecd2ad2a2', 'number': 486707, 'timestamp': datetime.datetime(2017, 9, 24, 0, 58, 8, tzinfo=<UTC>)}
+{'hash': '0000000000000000007908cf4cab8d18b29bd5aa2b292a414f6c10675f9984eb', 'number': 487282, 'timestamp': datetime.datetime(2017, 9, 28, 3, 58, 8, tzinfo=<UTC>)}
+{'hash': '000000000000000000e330bef17e39727e0ead7bce9b82f57b871be23add429e', 'number': 487003, 'timestamp': datetime.datetime(2017, 9, 26, 6, 17, 5, tzinfo=<UTC>)}
+{'hash': '0000000000000000008820077a37573e5a3c0d6a8315513e4cccd59462771228', 'number': 485973, 'timestamp': datetime.datetime(2017, 9, 19, 3, 12, 9, tzinfo=<UTC>)}
+{'hash': '00000000000000000000133426bc20b82bb1827108a626db6bde3c45adf93824', 'number': 486014, 'timestamp': datetime.datetime(2017, 9, 19, 11, 19, 41, tzinfo=<UTC>)}
+{'hash': '00000000000000000073100b1b3cb9ed537c43666a39e388f86e4484e7c14e30', 'number': 486192, 'timestamp': datetime.datetime(2017, 9, 20, 20, 1, 14, tzinfo=<UTC>)}
+{'hash': '0000000000000000000f9bc1d8095de15900a39db25b8323c71985778626a1e8', 'number': 487118, 'timestamp': datetime.datetime(2017, 9, 27, 1, 15, 14, tzinfo=<UTC>)}
+</pre>
+</div>
+
+<p>What if we had performed a full table scan, instead of using list_rows? How many resources would have been consumed? Let&rsquo;s find out:</p>
+
+<pre><code class="language-python">BYTES_PER_GB = 2**30
+bc_blocks.num_bytes / BYTES_PER_GB
+</code></pre>
+
+<h3 id="using-biqquery-via-magics">Using BiqQuery via magics</h3>
+
+<p>There&rsquo;s another, shorthand way to access data (replace &lsquo;bigquery-test-project-256220&rsquo; with your project ID):</p>
+
+<pre><code class="language-python">%%bigquery --project bigquery-test-project-256220
+SELECT
+  COUNT(*) as total_rows
+FROM `bigquery-public-data.crypto_bitcoin.blocks`
+</code></pre>
+
+<p><img src="https://www.systemscienceguy.com/images/bq-table-1.png" alt="Bitcoin query results" /></p>
+
+<p>Here&rsquo;s the whole notebook as a gist. Click the link at the top to view in Google Colab, so that you can run it interactively:</p>
+
+<style type="text/css">
+  .gist {width:100%; overflow:auto}  
+  .gist .file-data {max-height: 1000px;max-width: 500px;}
+</style>
+
+<script src="https://gist.github.com/gdcutting/92322a5717cefa556047e76f1529f655.js"></script>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://www.systemscienceguy.com/tags/google-cloud-platform">Google Cloud Platform</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://www.systemscienceguy.com/tags/cloud">Cloud</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://www.systemscienceguy.com/tags/bigquery">BigQuery</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://www.systemscienceguy.com/tags/sql">SQL</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://www.systemscienceguy.com/tags/python">Python</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://www.systemscienceguy.com/tags/big-data">Big Data</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+
+    
+        <li><a href="https://www.systemscienceguy.com/post/self-organized-criticality-economics/"
+                class="button big next">Self Organized Criticality Economics</a></li>
+    
+</ul>
+
+
+    </div>
+
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://www.systemscienceguy.com/'><img src="https://www.systemscienceguy.com/images/GDC-logo-web-trans.png" width="" alt="Guy Cutting Consulting" /></a>
+      
+    
+    
+      <header>
+        <h2>Guy Cutting</h2>
+        <p>Web-focused digital services</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://www.systemscienceguy.com/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gdcutting" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:guy@systemscienceguy.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://www.systemscienceguy.com/post/what-happened-big-data/">What Happened To Big Data?</a>
+              </h3>
+              
+              <time class="published" datetime='2020-05-24'>
+                May 24, 2020
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://www.systemscienceguy.com/post/bigquery-cost-control/">Bigquery Cost Control</a>
+              </h3>
+              
+              <time class="published" datetime='2020-05-24'>
+                May 24, 2020
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://www.systemscienceguy.com/post/ai-welfare-state/">Vox on AI as a threat to humanity</a>
+              </h3>
+              
+              <time class="published" datetime='2020-05-23'>
+                May 23, 2020
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://www.systemscienceguy.com/post/self-organized-criticality-economics/">Self Organized Criticality Economics</a>
+              </h3>
+              
+              <time class="published" datetime='2020-05-23'>
+                May 23, 2020
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://www.systemscienceguy.com/post/bigquery-1-getting-started/">BigQuery Part 1: Getting Started</a>
+              </h3>
+              
+              <time class="published" datetime='2020-04-23'>
+                April 23, 2020
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /blog/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://www.systemscienceguy.com/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>MS Systems Science (simulation & modeling and computational intelligence).</p>
+      <a href="https://www.systemscienceguy.com/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://www.systemscienceguy.com/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gdcutting" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:guy@systemscienceguy.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Guy Cutting
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://www.systemscienceguy.com/js/util.js"></script>
+      <script src="https://www.systemscienceguy.com/js/main.js"></script>
+      <script src="https://www.systemscienceguy.com/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

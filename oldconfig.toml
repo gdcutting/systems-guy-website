@@ -1,0 +1,26 @@
+baseURL = "http://www.systemscienceguy.com/"
+languageCode = "en-us"
+title = "Guy Cutting - Cloud and Data Systems"
+theme = "hugo-future-imperfect"
+
+preserveTaxonomyNames = true
+googleAnalytics = ""
+pluralizeListTitles = false
+
+[params]
+  #themeColor = "theme-base-0d"
+  mainSections = ["post"]
+  description = "Cloud and Data consulting in Portland, OR and beyond"
+  github = "gdcutting"
+  # Sets the navbarTitle that appears in the top left of the navigation bar
+  #navbarTitle          = "Guy Cutting - Cloud and Data consultant"
+  # Sets where "View More Posts" links
+  viewMorePostLink     = "/blog/"
+
+[Menus]
+  main = [
+      {Name = "Data Science", URL = "/datascience/", Weight = "1"},
+      {Name = "Cloud", URL = "/cloud/", Weight = "2"},
+      {Name = "Services & Rates", URL = "/services/", Weight = "3"},
+      {Name = "Contact", URL = "/contact/", Weight = "3"}
+  ]

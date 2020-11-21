@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guy Cutting</title>
+    <link>https://www.systemscienceguy.com/</link>
+    <description>Recent content on Guy Cutting</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2020 17:49:10 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.systemscienceguy.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Systems</title>
+      <link>https://www.systemscienceguy.com/systems/</link>
+      <pubDate>Sun, 24 May 2020 17:49:10 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/systems/</guid>
+      <description>Along with the more typical application development and data science services, I also offer specialized services in the following areas:
+ HPC (High Performance Computing) Alternative modeling methods:  Agent-Based Modeling Discrete Systems Simulation   These tools are often used alongside the more common data science tools for handling complex problems (large-scale social science simulations, manufacturing optimization, etc.). When appropriate, these methods can provide insights and solutions that other methods cannot, so they are an essential, if less often used, part of my problem-solving toolkit.</description>
+    </item>
+    
+    <item>
+      <title>Data Science &amp; Machine Learning</title>
+      <link>https://www.systemscienceguy.com/datascience/</link>
+      <pubDate>Sun, 24 May 2020 17:39:51 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/datascience/</guid>
+      <description>Our world is inundated with data, but making sense of it can be overwhelming. Data Science, Artificial Intelligence, and Machine Learning have been the subject of a lot of hype and breathless salesmanship in recent years, but how can these things work for you and your business?
+The benefits of these technologies can be huge, but the costs can also be significant. Though there has been a great deal of progress in the tools and techniques used for Data Science and AI/ML, deploying these technologies is often time-consuming and costly.</description>
+    </item>
+    
+    <item>
+      <title>What Happened To Big Data?</title>
+      <link>https://www.systemscienceguy.com/post/what-happened-big-data/</link>
+      <pubDate>Sun, 24 May 2020 14:24:24 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/what-happened-big-data/</guid>
+      <description>Starting in about 2010, interest in Big Data as a search trend rose rapidly until about 2014, when it peaked. Since then, the level of interest has been variable but trending down, so that as of May 2020 we are at a little over half of the 2014 interest level.
+For a while, Big Data was being sold as a revolutionary technology that would transform our lives (here&amp;rsquo;s just one example.</description>
+    </item>
+    
+    <item>
+      <title>Bigquery Cost Control</title>
+      <link>https://www.systemscienceguy.com/post/bigquery-cost-control/</link>
+      <pubDate>Sun, 24 May 2020 14:00:23 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/bigquery-cost-control/</guid>
+      <description>Part _ in a series on working with data in BigQuery on Google Cloud Platform
+Cost control is a significant issue when working with big data queries (and with cloud applications in general.) If you perform queries carelessly, without specifying exactly what data you need and without estimating the cost, you can easily end up with an eye-popping cloud services bill.
+Google recommends a number of best practices for controlling costs when using BigQuery:</description>
+    </item>
+    
+    <item>
+      <title>Vox on AI as a threat to humanity</title>
+      <link>https://www.systemscienceguy.com/post/ai-welfare-state/</link>
+      <pubDate>Sat, 23 May 2020 18:53:14 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/ai-welfare-state/</guid>
+      <description>Vox has a new piece on AI, why people fear it, and the threats that it might pose to the human race:
+The case for taking AI seriously as a threat to humanity This piece gives a brief overview of AI for those who are unfamiliar with any of the technical details. We are seeing a growing awareness of ethical and even existential issues related to artifical intelligence and machine learning.</description>
+    </item>
+    
+    <item>
+      <title>Cloud Services</title>
+      <link>https://www.systemscienceguy.com/cloud/</link>
+      <pubDate>Sat, 23 May 2020 18:21:18 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/cloud/</guid>
+      <description>Header 1 Header 2 This is a link
+Cloud computing has transformed IT, in many ways for the better. But it has created its own set of challenges.</description>
+    </item>
+    
+    <item>
+      <title>Self Organized Criticality Economics</title>
+      <link>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</link>
+      <pubDate>Sat, 23 May 2020 17:51:39 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</guid>
+      <description>Self-Organized Criticality Economic Model github repo Project report (PDF) with experimental results and analysis After finishing my Master&amp;rsquo;s in Systems Science at PSU, I now have some time to work on my website! Over the next few weeks I&amp;rsquo;m going to be posting some code and links to past projects. I&amp;rsquo;d like to start with a project from my Artificial Life class this term - it&amp;rsquo;s a simple Agent-Based economic model based on a Self-Organized Criticality mechanism.</description>
+    </item>
+    
+    <item>
+      <title>BigQuery Part 1: Getting Started</title>
+      <link>https://www.systemscienceguy.com/post/bigquery-1-getting-started/</link>
+      <pubDate>Thu, 23 Apr 2020 20:08:17 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/bigquery-1-getting-started/</guid>
+      <description>BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&amp;rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.
+In this installment, we&amp;rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &amp;lsquo;Open in Colab&amp;rsquo; link will take you to the Colaboratory interactive version which will run in your browser.</description>
+    </item>
+    
+    <item>
+      <title>Mission</title>
+      <link>https://www.systemscienceguy.com/mission/</link>
+      <pubDate>Fri, 18 Oct 2019 00:35:30 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/mission/</guid>
+      <description>My mission is to be your friendly digital advisor. We live in a world overflowing with tools and technologies, but the profusion of technology is a double-edged sword. It can be difficult to make sense of the rapidly evolving digital and information environment.
+The complexity of our systems demands specialization, but this creates a fragmented landscape in which the big picture is easily lost. The need often arises for a someone that can help you and your business make sense of all of this information, a general practitioner that can address a wide range of issues, and connect you with a specialist when one is needed.</description>
+    </item>
+    
+    <item>
+      <title>Appointments</title>
+      <link>https://www.systemscienceguy.com/appointments/</link>
+      <pubDate>Mon, 14 Oct 2019 15:47:41 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/appointments/</guid>
+      <description>Scroll down to select times below the calendar:
+ -- </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.systemscienceguy.com/about/</link>
+      <pubDate>Sun, 13 Oct 2019 17:40:29 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/about/</guid>
+      <description>My name is Guy Cutting, and I&amp;rsquo;m a resident of the beautiful city of Portland, Oregon. I have a master&amp;rsquo;s degree in Systems Science from Portland State University.
+I have been building and maintaining computers and websites for 20 years. I also have years of experience programming in Python, R, MySQL, C/C++, and other languages.
+I&amp;rsquo;m a passionate jazz fan, and I enjoy helping people set up their digital and musical environments to make all their favorite media easily accessible, so there are no barriers to listening and watching.</description>
+    </item>
+    
+    <item>
+      <title>Guy Cutting - Consultant</title>
+      <link>https://www.systemscienceguy.com/</link>
+      <pubDate>Sun, 03 Mar 2019 17:40:13 -0800</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/</guid>
+      <description>Index content goes here
+And here</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.systemscienceguy.com/mypost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/mypost/</guid>
+      <description>This determines what shows up first, lower weight = shows up first weight: 1
+This is what appears as the tab&amp;rsquo;s title title: &amp;ldquo;Cope | Alexis Collado&amp;rdquo;
+This is the description in the  tag description: &amp;ldquo;I set a direction for the branding and identity of the product and crafted a functioning prototype ready for usability testing and development.&amp;rdquo;
+This the heading of the navigation at the top of the case study nav_heading: &amp;ldquo;Cope Case Study&amp;rdquo;</description>
+    </item>
+    
+  </channel>
+</rss>

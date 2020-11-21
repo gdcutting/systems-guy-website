@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Guy Cutting</title>
+    <link>https://www.systemscienceguy.com/tags/python/</link>
+    <description>Recent content in Python on Guy Cutting</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2020 14:00:23 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.systemscienceguy.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bigquery Cost Control</title>
+      <link>https://www.systemscienceguy.com/post/bigquery-cost-control/</link>
+      <pubDate>Sun, 24 May 2020 14:00:23 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/bigquery-cost-control/</guid>
+      <description>Part _ in a series on working with data in BigQuery on Google Cloud Platform
+Cost control is a significant issue when working with big data queries (and with cloud applications in general.) If you perform queries carelessly, without specifying exactly what data you need and without estimating the cost, you can easily end up with an eye-popping cloud services bill.
+Google recommends a number of best practices for controlling costs when using BigQuery:</description>
+    </item>
+    
+    <item>
+      <title>Self Organized Criticality Economics</title>
+      <link>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</link>
+      <pubDate>Sat, 23 May 2020 17:51:39 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</guid>
+      <description>Self-Organized Criticality Economic Model github repo Project report (PDF) with experimental results and analysis After finishing my Master&amp;rsquo;s in Systems Science at PSU, I now have some time to work on my website! Over the next few weeks I&amp;rsquo;m going to be posting some code and links to past projects. I&amp;rsquo;d like to start with a project from my Artificial Life class this term - it&amp;rsquo;s a simple Agent-Based economic model based on a Self-Organized Criticality mechanism.</description>
+    </item>
+    
+    <item>
+      <title>BigQuery Part 1: Getting Started</title>
+      <link>https://www.systemscienceguy.com/post/bigquery-1-getting-started/</link>
+      <pubDate>Thu, 23 Apr 2020 20:08:17 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/bigquery-1-getting-started/</guid>
+      <description>BigQuery, one of the many services available on Google Cloud Platform, is an enterprise data warehouse which lets you perform fast queries on very large datasets using Google&amp;rsquo;s infrastructure. You can get started using it free of charge with one of the many publicly available datasets build into GCP.
+In this installment, we&amp;rsquo;ll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The &amp;lsquo;Open in Colab&amp;rsquo; link will take you to the Colaboratory interactive version which will run in your browser.</description>
+    </item>
+    
+  </channel>
+</rss>

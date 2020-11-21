@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/systems/</loc>
+    <lastmod>2020-05-24T17:49:10-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/datascience/</loc>
+    <lastmod>2020-05-24T17:39:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/post/what-happened-big-data/</loc>
+    <lastmod>2020-05-24T14:24:24-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/post/bigquery-cost-control/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/contact/</loc>
+    <lastmod>2020-05-23T23:35:34-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/post/ai-welfare-state/</loc>
+    <lastmod>2020-05-23T18:53:14-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/cloud/</loc>
+    <lastmod>2020-05-23T18:21:18-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/post/self-organized-criticality-economics/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/post/bigquery-1-getting-started/</loc>
+    <lastmod>2020-04-23T20:08:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/services/</loc>
+    <lastmod>2019-10-18T03:24:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/mission/</loc>
+    <lastmod>2019-10-18T00:35:30-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/appointments/</loc>
+    <lastmod>2019-10-14T15:47:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/about/</loc>
+    <lastmod>2019-10-13T17:40:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/</loc>
+    <lastmod>2019-03-03T17:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/mypost/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/agent-based-modeling/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/artificial-intelligence/</loc>
+    <lastmod>2020-05-23T18:53:14-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/big-data/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/bigquery/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/cloud/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/complexity/</loc>
+    <lastmod>2020-05-23T18:53:14-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/data-science/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/economics/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/futurism/</loc>
+    <lastmod>2020-05-23T18:53:14-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/google-cloud-platform/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/</loc>
+    <lastmod>2020-05-24T17:49:10-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/modeling/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/plotly/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/post/</loc>
+    <lastmod>2020-05-24T14:24:24-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/python/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/sql/</loc>
+    <lastmod>2020-05-24T14:00:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/simulation/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/</loc>
+    <lastmod>2020-05-23T17:51:39-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.systemscienceguy.com/tags/technology-and-society/</loc>
+    <lastmod>2020-05-23T18:53:14-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

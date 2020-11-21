@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Artificial Intelligence on Guy Cutting</title>
+    <link>https://www.systemscienceguy.com/tags/artificial-intelligence/</link>
+    <description>Recent content in Artificial Intelligence on Guy Cutting</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 May 2020 18:53:14 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.systemscienceguy.com/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vox on AI as a threat to humanity</title>
+      <link>https://www.systemscienceguy.com/post/ai-welfare-state/</link>
+      <pubDate>Sat, 23 May 2020 18:53:14 -0700</pubDate>
+      
+      <guid>https://www.systemscienceguy.com/post/ai-welfare-state/</guid>
+      <description>Vox has a new piece on AI, why people fear it, and the threats that it might pose to the human race:
+The case for taking AI seriously as a threat to humanity This piece gives a brief overview of AI for those who are unfamiliar with any of the technical details. We are seeing a growing awareness of ethical and even existential issues related to artifical intelligence and machine learning.</description>
+    </item>
+    
+  </channel>
+</rss>

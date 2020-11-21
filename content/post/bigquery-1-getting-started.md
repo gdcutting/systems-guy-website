@@ -10,7 +10,7 @@ BigQuery, one of the many services available on Google Cloud Platform, is an ent
 In this installment, we'll take a look at setup and basic usage. I put together a jupyter notebook to demonstrate. The 'Open in Colab' link will take you to the Colaboratory interactive version which will run in your browser. You might also need to use that link if the Gist embed below isn't working (notebook embeds have been occasionally acting up on Gist lately).
 
 
-<a href = "https://colab.research.google.com/github/gdcutting/bigquery/blob/master/Google_BigQuery_Getting_Started.ipynb" target = "new">View this notebook on Google Colaboratory</a>
+<a href = "https://colab.research.google.com/github/gdcutting/bigquery/blob/master/Google_BigQuery_Getting_Started.ipynb" target = "new">View this notebook on Google Collaboratory</a>
 
 # Getting started with the BigQuery API
 
